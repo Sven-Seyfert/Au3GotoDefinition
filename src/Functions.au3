@@ -7,20 +7,20 @@ Func _isVisualStudioCodeActive()
     Return False
 EndFunc
 
-Func _send( $sKeys, $iSleep = 150 )
+Func _send( $sKeys )
     Send( $sKeys )
-    Sleep( $iSleep )
+    Sleep( 100 )
 EndFunc
 
 Func _getCurrentFilePath()
-    _send( '^{NUMPAD6}', 50 )
+    _send( '^{NUMPAD6}' )
     Return ClipGet()
 EndFunc
 
 Func _getFuncName()
-    _send( '^{LEFT}', 0 )
-    _send( '^+{RIGHT}', 0 )
-    _send( '^c', 50 )
+    _send( '^{LEFT}' )
+    _send( '^+{RIGHT}' )
+    _send( '^c' )
     Return ClipGet()
 EndFunc
 
@@ -56,21 +56,38 @@ Func _searchForDefinitionInFiles( $aFileList, $sPattern )
     Return $sWarningMessage
 EndFunc
 
-Func _pasteAndEnter()
+Func _pasteAndEnter( $sContent )
+    ClipPut( $sContent )
     _send( '^v' )
     _send( '{ENTER}' )
 EndFunc
 
+Func _addBackslashToPathEnd( $sPath )
+    If StringRight( $sPath, 1 ) <> '\' Then $sPath &= '\'
+    Return $sPath
+EndFunc
+
 Func _goToFile( $sFile )
     _send( '^p' )
-    ClipPut( _getJustFileName( $sFile ) )
-    _pasteAndEnter()
+    _pasteAndEnter( _getJustFileName( $sFile ) )
 EndFunc
 
 Func _goToLine( $iLine )
     _send( '^g' )
-    ClipPut( $iLine )
-    _pasteAndEnter()
+    _pasteAndEnter( $iLine )
+EndFunc
+
+Func _openFile( $sFile )
+    _send( '^o' )
+    If WinWaitActive( $sDialogOpenFile, '', 2 ) == 0 Then Return False
+    _pasteAndEnter( $sFile )
+    Return True
+EndFunc
+
+Func _dispose()
+    _send( '{SHIFTUP 2}' )
+    _send( '{CTRLUP 2}' )
+    ToolTip( '' )
 EndFunc
 
 Func _goToDefinition()
@@ -84,10 +101,27 @@ Func _goToDefinition()
         If $sFileAndLine <> $sWarningMessage Then
             Local $sDefinitionFile = StringSplit( $sFileAndLine, '|' )[1]
             Local $sDefinitionLine = StringSplit( $sFileAndLine, '|' )[2]
+
             _goToFile( $sDefinitionFile )
             _goToLine( $sDefinitionLine )
         Else
-            MsgBox( 48, 'Warning', $sWarningMessage, 30 )
+            $sPathOfIncludeFiles = _addBackslashToPathEnd( $sPathOfIncludeFiles )
+            Local $aFileList     = _getAu3FilesOnSameLevel( $sPathOfIncludeFiles )
+            Local $sFileAndLine  = _searchForDefinitionInFiles( $aFileList, $sPattern )
+
+            If $sFileAndLine <> $sWarningMessage Then
+                Local $sDefinitionFile = StringSplit( $sFileAndLine, '|' )[1]
+                Local $sDefinitionLine = StringSplit( $sFileAndLine, '|' )[2]
+                If _openFile( $sDefinitionFile ) Then
+                    Sleep( 250 )
+                    _goToLine( $sDefinitionLine )
+                EndIf
+            Else
+                ToolTip( $sWarningMessage & '"' & $sFuncName & '"!', Default, Default, 'Au3GotoDefinition', 2 )
+                Sleep( 2500 )
+            EndIf
         EndIf
+
+        _dispose()
     EndIf
 EndFunc

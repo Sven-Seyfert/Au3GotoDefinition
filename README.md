@@ -2,13 +2,13 @@
 
 <p align="center">
     <img src="http://sven-seyfert.de/media/logo_circle.png" width="80" />
-    <h2 align="center">Welcome to <code>Au3GoToDefinition</code> !</h2>
+    <h2 align="center">Welcome to <code>Au3GotoDefinition</code> !</h2>
 </p>
 
 ![license](https://img.shields.io/badge/license-MIT-green.svg?logo=github)
-![repo size](https://img.shields.io/github/repo-size/Sven-Seyfert/AutoIt-Au3GoToDefinition.svg?logo=github)
-![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/AutoIt-Au3GoToDefinition.svg?logo=github)
-![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/AutoIt-Au3GoToDefinition.svg?logo=github)
+![repo size](https://img.shields.io/github/repo-size/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
+![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
+![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
 ![os](https://img.shields.io/badge/os-windows-blueviolet.svg?logo=windows)
 ![autoit](https://img.shields.io/badge/autoit-rockz-9cf.svg?logo=visual-studio-code)
 
@@ -16,7 +16,7 @@
 
 ## Description
 
-Au3GoToDefinition ... .
+Au3GotoDefinition ... .
 
 ## Features
 
@@ -55,7 +55,7 @@ For my AutoIt projects and programs I use a self defined StyleGuide which repres
 
 ## Contributing
 
-- Check out the code, leave feedback and feature requests now on [GitHub/Sven-Seyfert](https://github.com/Sven-Seyfert/AutoIt-Au3GoToDefinition).
+- Check out the code, leave feedback and feature requests now on [GitHub/Sven-Seyfert](https://github.com/Sven-Seyfert/AutoIt-Au3GotoDefinition).
 - Please fork the repository and contribute using pull requests.
 
 ##
