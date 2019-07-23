@@ -16,7 +16,7 @@
 
 ## Description
 
-Au3GotoDefinition ... .
+Au3GotoDefinition is a small helper tool which allows a jump to the function definition. It's design to work with Visual Studio Code. Go to the function definition of your files or even of the UDF include path.
 
 ## Features
 
