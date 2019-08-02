@@ -1,6 +1,6 @@
-# Code of Conduct
+# Contributor Covenant Code of Conduct
 
-## Adaption of the Contributor Covenant Code of Conduct
+## My adapted Code of Conduct
 
 ### My Goal
 
