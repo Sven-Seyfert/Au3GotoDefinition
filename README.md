@@ -55,8 +55,7 @@ For my AutoIt projects and programs I use a self defined StyleGuide which repres
 
 ## Contributing
 
-- Check out the code, leave feedback and feature requests now on [GitHub/Sven-Seyfert](https://github.com/Sven-Seyfert/AutoIt-Au3GotoDefinition).
-- Please fork the repository and contribute using pull requests.
+Just look at [CONTRIBUTING](https://github.com/Sven-Seyfert/AutoIt-Au3GotoDefinition/blob/master/docs/CONTRIBUTING.md), thank you!
 
 ##
 
