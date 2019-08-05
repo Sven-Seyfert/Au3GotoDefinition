@@ -12,7 +12,7 @@
 ![os](https://img.shields.io/badge/os-windows-blueviolet.svg?logo=windows)
 ![autoit](https://img.shields.io/badge/autoit-rockz-9cf.svg?logo=visual-studio-code)
 
-[Description](#description) | [Features](#features) | [Getting started](#getting-started) | [Configuration](#configuration) | [Keyboard Shortcuts](#keyboard-shortcuts) | [Tested](#tested) | [Style Guide](#style-guide) | [Contributing](#contributing)
+[Description](#description) | [Features](#features) | [Getting started](#getting-started) | [Configuration](#configuration) | [Keyboard Shortcuts](#keyboard-shortcuts) | [Tested](#tested) | [Contributing](#contributing) | [Style Guide](#style-guide)
 
 ## Description
 
@@ -49,13 +49,13 @@ Au3GotoDefinition is a small helper tool which allows a jump to the function def
 | @OSArch        | X64         | X64             | X86           |
 | @OSVersion     | WIN_7       | WIN_10          | Win_10        |
 
-## Style Guide
-
-For my AutoIt projects and programs I use a self defined StyleGuide which represents how I write nice readable code that should be understandable by others quickly. Therefore please have a look on my [AutoIt-Au3StyleGuide](https://github.com/Sven-Seyfert/AutoIt-Au3StyleGuide/blob/master/README.md) repository if you're interested.
-
 ## Contributing
 
 Just look at [CONTRIBUTING](https://github.com/Sven-Seyfert/AutoIt-Au3GotoDefinition/blob/master/docs/CONTRIBUTING.md), thank you!
+
+## Style Guide
+
+For my AutoIt projects and programs I use a self defined StyleGuide which represents how I write nice readable code that should be understandable by others quickly. Therefore please have a look on my [AutoIt-Au3StyleGuide](https://github.com/Sven-Seyfert/AutoIt-Au3StyleGuide/blob/master/README.md) repository if you're interested.
 
 ##
 
