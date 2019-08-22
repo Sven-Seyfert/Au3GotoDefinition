@@ -5,7 +5,7 @@
     <h2 align="center">Welcome to <code>Au3GotoDefinition</code> !</h2>
 </p>
 
-![license](https://img.shields.io/badge/license-MIT-green.svg?logo=github)
+![license](https://img.shields.io/badge/license-MIT-green.svg?logo=spdx)
 ![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
 ![repo size](https://img.shields.io/github/repo-size/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
 ![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/AutoIt-Au3GotoDefinition.svg?logo=github)
