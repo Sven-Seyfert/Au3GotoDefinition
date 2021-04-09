@@ -1,19 +1,12 @@
-Func _exit()
-    Exit
-EndFunc
-
 Func _isVisualStudioCodeActive()
-    If StringInStr( WinGetTitle( '[active]' ), $sEditor, 2 ) <> 0 Then Return True
-    Return False
-EndFunc
+    If StringInStr( WinGetTitle( '[ACTIVE]' ), $sEditor, 2 ) <> 0 Then Return True
 
-Func _send( $sKeys )
-    Send( $sKeys )
-    Sleep( 100 )
+    Return False
 EndFunc
 
 Func _getCurrentFilePath()
     _send( '^{NUMPAD6}' )
+
     Return ClipGet()
 EndFunc
 
@@ -21,38 +14,30 @@ Func _getFuncName()
     _send( '^{LEFT}' )
     _send( '^+{RIGHT}' )
     _send( '^c' )
+
     Return ClipGet()
-EndFunc
-
-Func _getJustFileName( $sFilePath )
-    Return StringRegExpReplace( $sFilePath, '(.+?)\\', '', 0 )
-EndFunc
-
-Func _getJustPathOfFile( $sFilePath )
-    Return StringTrimRight( $sFilePath, StringLen( _getJustFileName( $sFilePath ) ) )
 EndFunc
 
 Func _getAu3FilesOnSameLevel( $sFile )
     Local $sPath = _getJustPathOfFile( $sFile )
+
     Return _FileListToArray( $sPath, '*.au3', 1, True )
 EndFunc
 
-Func _getFileContent( $sFile )
-    Local $hFile        = FileOpen( $sFile, 256 )
-    Local $sFileContent = FileRead( $hFile )
-    FileClose( $hFile )
-    Return $sFileContent
-EndFunc
-
 Func _searchForDefinitionInFiles( $aFileList, $sPattern )
-    For $i = 1 To $aFileList[0] Step 1
+    Local $iFileListCount = $aFileList[0]
+
+    For $i = 1 To $iFileListCount Step 1
         Local $aFileContent = StringSplit( _getFileContent( $aFileList[$i] ), @CRLF, 1 )
-        For $j = 1 To $aFileContent[0] Step 1
+        Local $iFileContentCount = $aFileContent[0]
+
+        For $j = 1 To $iFileContentCount Step 1
             If StringRegExp( $aFileContent[$j], $sPattern, 0 ) Then
                 Return $aFileList[$i] & '|' & $j
             EndIf
         Next
     Next
+
     Return $sWarningMessage
 EndFunc
 
@@ -60,11 +45,6 @@ Func _pasteAndEnter( $sContent )
     ClipPut( $sContent )
     _send( '^v' )
     _send( '{ENTER}' )
-EndFunc
-
-Func _addBackslashToPathEnd( $sPath )
-    If StringRight( $sPath, 1 ) <> '\' Then $sPath &= '\'
-    Return $sPath
 EndFunc
 
 Func _goToFile( $sFile )
@@ -81,12 +61,14 @@ Func _openFile( $sFile )
     _send( '^o' )
     If WinWaitActive( $sDialogOpenFile, '', 2 ) == 0 Then Return False
     _pasteAndEnter( $sFile )
+
     Return True
 EndFunc
 
 Func _dispose()
     _send( '{SHIFTUP 2}' )
     _send( '{CTRLUP 2}' )
+
     ToolTip( '' )
 EndFunc
 
@@ -117,7 +99,7 @@ Func _goToDefinition()
                     _goToLine( $sDefinitionLine )
                 EndIf
             Else
-                ToolTip( $sWarningMessage & '"' & $sFuncName & '"!', Default, Default, 'Au3GotoDefinition', 2 )
+                ToolTip( $sWarningMessage & '"' & $sFuncName & '".', Default, Default, 'Au3GotoDefinition', 2 )
                 Sleep( 2500 )
             EndIf
         EndIf
