@@ -1,7 +1,7 @@
 #####
 
 <p align="center">
-    <img src="https://github.com/Sven-Seyfert/Au3GotoDefinition/blob/master/media/favicon.ico" width="80" />
+    <img src="images/icon.png" width="80" />
     <h2 align="center">Welcome to <code>Au3GotoDefinition</code>【ツ】</h2>
 </p>
 
@@ -40,7 +40,7 @@ To be defined [...]
 ## Keyboard Shortcuts
 
 | Action          | Shortcut   |
-| :-------------- | :--------- |
+| :---            | :---       |
 | Exit            | `Ctrl+F10` |
 | Go to definiton | `Ctrl+F12` |
 
