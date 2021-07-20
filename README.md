@@ -31,7 +31,16 @@ To be defined [...]
 
 #### *Installation*
 
-To be defined [...]
+**Variant 1 - Run the EXE**
+
+Starting the EXE `build\Au3GotoDefinition.exe` which is compiled with `#AutoIt3Wrapper_UseX64=y` and `#AutoIt3Wrapper_UseUpx=n` (the default expected system is x64).
+
+**Variant 2 - Compile it on your own**
+
+Open file `src\Au3GotoDefinition.au3`, adjust the *#AutoIt3Wrapper compiler information* if you want to (for example you could change `#AutoIt3Wrapper_UseUpx=y` from no to yes etc.).
+Then, run or compile the program.
+
+#### *Usage*
 
 ## Configuration
 
