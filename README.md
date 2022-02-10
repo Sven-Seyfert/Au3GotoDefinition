@@ -5,11 +5,11 @@
     <h2 align="center">Welcome to <code>Au3GotoDefinition</code>【ツ】</h2>
 </p>
 
-![license](https://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat-square&logo=spdx)
-![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)
+[![license](https://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat-square&logo=spdx)](https://github.com/Sven-Seyfert/Au3GotoDefinition/blob/master/LICENSE.md)
+[![contributors](https://img.shields.io/github/contributors/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/Au3GotoDefinition/graphs/contributors)
 ![repo size](https://img.shields.io/github/repo-size/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)
-![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)
-![release](https://img.shields.io/github/release/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)
+[![last commit](https://img.shields.io/github/last-commit/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/Au3GotoDefinition/commits/master)
+[![release](https://img.shields.io/github/release/Sven-Seyfert/Au3GotoDefinition.svg?style=flat-square&logo=github)](https://github.com/Sven-Seyfert/Au3GotoDefinition/releases/latest)
 ![os](https://img.shields.io/badge/os-windows-yellow.svg?style=flat-square&logo=windows)
 ![editor](https://img.shields.io/badge/editor-VSCode-blueviolet.svg?style=flat-square&logo=visual-studio-code)
 
