@@ -1,13 +1,13 @@
-Func _exit()
+Func _Exit()
     Exit
 EndFunc
 
-Func _send($sKeys)
+Func _Send($sKeys)
     Send($sKeys)
     Sleep(100)
 EndFunc
 
-Func _getFileContent($sFile)
+Func _GetFileContent($sFile)
     Local $hFile        = FileOpen($sFile, 256)
     Local $sFileContent = FileRead($hFile)
     FileClose($hFile)
@@ -15,15 +15,15 @@ Func _getFileContent($sFile)
     Return $sFileContent
 EndFunc
 
-Func _getJustFileName($sFilePath)
+Func _GetJustFileName($sFilePath)
     Return StringRegExpReplace($sFilePath, '(.+?)\\', '', 0)
 EndFunc
 
-Func _getJustPathOfFile($sFilePath)
-    Return StringTrimRight($sFilePath, StringLen(_getJustFileName($sFilePath)))
+Func _GetJustPathOfFile($sFilePath)
+    Return StringTrimRight($sFilePath, StringLen(_GetJustFileName($sFilePath)))
 EndFunc
 
-Func _addBackslashToPathEnd($sPath)
+Func _AddBackslashToPathEnd($sPath)
     If StringRight($sPath, 1) <> '\' Then $sPath &= '\'
 
     Return $sPath

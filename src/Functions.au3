@@ -1,34 +1,34 @@
-Func _isVisualStudioCodeActive()
+Func _IsVisualStudioCodeActive()
     If StringInStr(WinGetTitle('[ACTIVE]'), $sEditor, 2) <> 0 Then Return True
 
     Return False
 EndFunc
 
-Func _getCurrentFilePath()
-    _send('^{NUMPAD6}')
+Func _GetCurrentFilePath()
+    _Send('^{NUMPAD6}')
 
     Return ClipGet()
 EndFunc
 
-Func _getFuncName()
-    _send('^{LEFT}')
-    _send('^+{RIGHT}')
-    _send('^c')
+Func _GetFuncName()
+    _Send('^{LEFT}')
+    _Send('^+{RIGHT}')
+    _Send('^c')
 
     Return ClipGet()
 EndFunc
 
-Func _getAu3FilesOnSameLevel($sFile)
-    Local $sPath = _getJustPathOfFile($sFile)
+Func _GetAu3FilesOnSameLevel($sFile)
+    Local $sPath = _GetJustPathOfFile($sFile)
 
     Return _FileListToArray($sPath, '*.au3', 1, True)
 EndFunc
 
-Func _searchForDefinitionInFiles($aFileList, $sPattern)
+Func _SearchForDefinitionInFiles($aFileList, $sPattern)
     Local $iFileListCount = $aFileList[0]
 
     For $i = 1 To $iFileListCount Step 1
-        Local $aFileContent = StringSplit(_getFileContent($aFileList[$i]), @CRLF, 1)
+        Local $aFileContent = StringSplit(_GetFileContent($aFileList[$i]), @CRLF, 1)
         Local $iFileContentCount = $aFileContent[0]
 
         For $j = 1 To $iFileContentCount Step 1
@@ -41,62 +41,62 @@ Func _searchForDefinitionInFiles($aFileList, $sPattern)
     Return $sWarningMessage
 EndFunc
 
-Func _pasteAndEnter($sContent)
+Func _PasteAndEnter($sContent)
     ClipPut($sContent)
-    _send('^v')
-    _send('{ENTER}')
+    _Send('^v')
+    _Send('{ENTER}')
 EndFunc
 
-Func _goToFile($sFile)
-    _send('^p')
-    _pasteAndEnter(_getJustFileName($sFile))
+Func _GoToFile($sFile)
+    _Send('^p')
+    _PasteAndEnter(_GetJustFileName($sFile))
 EndFunc
 
-Func _goToLine($iLine)
-    _send('^g')
-    _pasteAndEnter($iLine)
+Func _GoToLine($iLine)
+    _Send('^g')
+    _PasteAndEnter($iLine)
 EndFunc
 
-Func _openFile($sFile)
-    _send('^o')
+Func _OpenFile($sFile)
+    _Send('^o')
     If WinWaitActive($sDialogOpenFile, '', 2) == 0 Then Return False
-    _pasteAndEnter($sFile)
+    _PasteAndEnter($sFile)
 
     Return True
 EndFunc
 
-Func _dispose()
-    _send('{SHIFTUP 2}')
-    _send('{CTRLUP 2}')
+Func _Dispose()
+    _Send('{SHIFTUP 2}')
+    _Send('{CTRLUP 2}')
 
     ToolTip('')
 EndFunc
 
-Func _goToDefinition()
-    If _isVisualStudioCodeActive() Then
-        Local $sFuncName        = _getFuncName()
-        Local $sCurrentFilePath = _getCurrentFilePath()
+Func _GoToDefinition()
+    If _IsVisualStudioCodeActive() Then
+        Local $sFuncName        = _GetFuncName()
+        Local $sCurrentFilePath = _GetCurrentFilePath()
         Local $sPattern         = 'Func\s+' & $sFuncName & '\('
-        Local $aFileList        = _getAu3FilesOnSameLevel($sCurrentFilePath)
-        Local $sFileAndLine     = _searchForDefinitionInFiles($aFileList, $sPattern)
+        Local $aFileList        = _GetAu3FilesOnSameLevel($sCurrentFilePath)
+        Local $sFileAndLine     = _SearchForDefinitionInFiles($aFileList, $sPattern)
 
         If $sFileAndLine <> $sWarningMessage Then
             Local $sDefinitionFile = StringSplit($sFileAndLine, '|')[1]
             Local $sDefinitionLine = StringSplit($sFileAndLine, '|')[2]
 
-            _goToFile($sDefinitionFile)
-            _goToLine($sDefinitionLine)
+            _GoToFile($sDefinitionFile)
+            _GoToLine($sDefinitionLine)
         Else
-            $sPathOfIncludeFiles = _addBackslashToPathEnd($sPathOfIncludeFiles)
-            Local $aFileList     = _getAu3FilesOnSameLevel($sPathOfIncludeFiles)
-            Local $sFileAndLine  = _searchForDefinitionInFiles($aFileList, $sPattern)
+            $sPathOfIncludeFiles = _AddBackslashToPathEnd($sPathOfIncludeFiles)
+            Local $aFileList     = _GetAu3FilesOnSameLevel($sPathOfIncludeFiles)
+            Local $sFileAndLine  = _SearchForDefinitionInFiles($aFileList, $sPattern)
 
             If $sFileAndLine <> $sWarningMessage Then
                 Local $sDefinitionFile = StringSplit($sFileAndLine, '|')[1]
                 Local $sDefinitionLine = StringSplit($sFileAndLine, '|')[2]
-                If _openFile($sDefinitionFile) Then
+                If _OpenFile($sDefinitionFile) Then
                     Sleep(250)
-                    _goToLine($sDefinitionLine)
+                    _GoToLine($sDefinitionLine)
                 EndIf
             Else
                 ToolTip($sWarningMessage & '"' & $sFuncName & '".', Default, Default, 'Au3GotoDefinition', 2)
@@ -104,6 +104,6 @@ Func _goToDefinition()
             EndIf
         EndIf
 
-        _dispose()
+        _Dispose()
     EndIf
 EndFunc
