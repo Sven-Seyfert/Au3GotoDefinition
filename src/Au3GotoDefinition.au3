@@ -1,9 +1,9 @@
 ; compiler information for AutoIt
 #pragma compile(CompanyName, © SOLVE SMART)
-#pragma compile(FileVersion, 1.4.0)
+#pragma compile(FileVersion, 1.5.0)
 #pragma compile(LegalCopyright, © Sven Seyfert)
 #pragma compile(ProductName, Au3GotoDefinition)
-#pragma compile(ProductVersion, 1.4.0 - 2022-02-14)
+#pragma compile(ProductVersion, 1.5.0 - 2022-08-02)
 
 #AutoIt3Wrapper_AU3Check_Stop_OnWarning=y
 #AutoIt3Wrapper_Icon=..\media\favicon.ico
@@ -26,7 +26,7 @@ If $aInst[0][0] > 1 Then Exit
 
 
 
-; references -------------------------------------------------------------------
+; modules ----------------------------------------------------------------------
 #include "Declaration.au3"
 #include "BasicFunctions.au3"
 #include "Functions.au3"
@@ -37,6 +37,6 @@ If $aInst[0][0] > 1 Then Exit
 HotKeySet('^{F10}', '_Exit')
 HotKeySet('^{F12}', '_GoToDefinition')
 
-While 1
+While True
     Sleep(250)
 WEnd
