@@ -11,6 +11,12 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 ## [Unreleased]
 
+## [1.6.0] - 2022-08-03
+
+### Changed
+
+- Project file structure to fit the default from Au3NewProject.
+
 ## [1.5.0] - 2022-08-02
 
 ### Added
@@ -66,7 +72,8 @@ Go to [legend](#legend---types-of-changes) for further information about the typ
 
 - AutoIt Code formatting to the common notation without additional spaces after opened brackets and before closed brackets.
 
-[Unreleased]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Sven-Seyfert/Au3GotoDefinition/compare/v1.2.0...v1.3.0
